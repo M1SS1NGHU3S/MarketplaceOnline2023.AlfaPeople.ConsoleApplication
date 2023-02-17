@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Tooling.Connector;
+﻿using MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers;
+using Microsoft.Xrm.Tooling.Connector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication
 		static void Main(string[] args)
 		{
 			CrmServiceClient serviceClient = Singleton.GetService();
+			ContaController contaController = new ContaController(serviceClient);
+
+			contaController.Create();
 			Console.ReadKey();
 		}
 	}
