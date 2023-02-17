@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Tooling.Connector;
+﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Tooling.Connector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,19 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Models
 		public Contato(CrmServiceClient serviceClient)
 		{
 			this.ServiceClient = serviceClient;
+		}
+
+		public Guid Create(Guid contaId, string email, string nome, string sobrenome, string celular)
+		{
+
+			Entity contato = new Entity(TipoLogico);
+			contato["accountid"] = contaId;
+			contato["emailaddress1"] = email;
+			contato["firstname"] = nome;
+			contato["lastname"] = sobrenome;
+			contato["mobilephone"] = celular;
+
+			return ServiceClient.Create(contato);
 		}
 	}
 }

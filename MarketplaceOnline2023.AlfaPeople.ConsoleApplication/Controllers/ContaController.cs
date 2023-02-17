@@ -20,7 +20,7 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers
 			Conta = new Conta(serviceClient);
 		}
 
-		public void Create(string contaNome)
+		public Guid Create(string contaNome)
 		{
 			//Console.WriteLine("Informe o número de funcionários desta conta: ");
 			//int numFuncionarios = int.Parse(Console.ReadLine());
@@ -35,8 +35,20 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers
 			//Guid clientePotencialId = new Guid(Console.ReadLine());
 
 			//Guid contaId = Conta.Create(contaNome, receitaAnual, numFuncionarios, tipoRelacao, clientePotencialId);
+
+			Console.WriteLine("\nAguarde enquanto criamos a conta...");
 			Guid contaId = Conta.Create(contaNome, 120400.12m, 36, new OptionSetValue(100000000), new Guid("e4a18ae0-4d0e-ea11-a813-000d3a1bbd52"));
-			Console.WriteLine($"\nConta criada com sucesso: https://org737e10c5.crm2.dynamics.com/main.aspx?appid=74c97688-24ae-ed11-9885-002248365eb3&pagetype=entityrecord&etn=account&id={contaId}" );
+			Console.WriteLine($"Conta criada com sucesso: https://org737e10c5.crm2.dynamics.com/main.aspx?appid=74c97688-24ae-ed11-9885-002248365eb3&pagetype=entityrecord&etn=account&id={contaId}" );
+
+			return contaId;
+		}
+
+		public void UpdatePrimaryContact(Guid contactId, Guid contaId)
+		{
+			Console.WriteLine("\nAguarde enquanto atribuímos o contato a sua conta...");
+
+			bool updateContactSucessful = Conta.UpdatePrimaryContact(contactId, contaId);
+			if (updateContactSucessful) { Console.WriteLine("Contato atribuído a conta com sucesso!"); }
 		}
 	}
 }

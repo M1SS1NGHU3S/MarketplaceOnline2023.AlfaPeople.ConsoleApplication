@@ -30,5 +30,23 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Models
 
 			return ServiceClient.Create(conta);
 		}
+
+		public bool UpdatePrimaryContact(Guid contactId, Guid contaId)
+		{
+			Entity conta = new Entity(TipoLogico, contaId);
+
+			try
+			{
+				conta["primarycontactid"] = new EntityReference("contact", contactId);
+				ServiceClient.Update(conta);
+				return true;
+			} 
+			catch (Exception ex)
+			{
+				Console.WriteLine("Um erro ocorreu no processo de atualizar o contato primário: " + ex.ToString());
+				return false;
+			}
+			
+		}
 	}
 }
