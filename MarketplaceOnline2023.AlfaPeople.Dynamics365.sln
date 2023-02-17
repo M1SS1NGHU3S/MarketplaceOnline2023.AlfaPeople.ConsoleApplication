@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketplaceOnline2023.AlfaPeople.ConsoleApplication", "MarketplaceOnline2023.AlfaPeople.ConsoleApplication\MarketplaceOnline2023.AlfaPeople.ConsoleApplication.csproj", "{D00CA7E8-BF7D-45F9-891A-01737BC91338}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D00CA7E8-BF7D-45F9-891A-01737BC91338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00CA7E8-BF7D-45F9-891A-01737BC91338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00CA7E8-BF7D-45F9-891A-01737BC91338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00CA7E8-BF7D-45F9-891A-01737BC91338}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9D4F136-2C45-428B-ABC8-A96D1C8EBF27}
+	EndGlobalSection
+EndGlobal
