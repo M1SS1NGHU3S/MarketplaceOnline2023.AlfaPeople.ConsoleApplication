@@ -15,7 +15,20 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication
 			CrmServiceClient serviceClient = Singleton.GetService();
 			ContaController contaController = new ContaController(serviceClient);
 
-			contaController.Create();
+			Console.WriteLine("\nPor favor, informe o nome da conta: ");
+			string contaNome = Console.ReadLine();
+
+			contaController.Create(contaNome);
+
+			Console.WriteLine("Você deseja criar um contato para essa conta? (S/N)?");
+			string criarContatoResposta = Console.ReadLine().ToUpper();
+
+			while (criarContatoResposta != "S" && criarContatoResposta != "N")
+			{
+				Console.WriteLine("Resposta inválida. Você deseja criar um contato para essa conta? (S/N)?");
+				criarContatoResposta = Console.ReadLine().ToUpper();
+			}
+
 			Console.ReadKey();
 		}
 	}

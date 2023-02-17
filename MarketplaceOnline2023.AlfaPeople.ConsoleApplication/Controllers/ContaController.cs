@@ -17,13 +17,26 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers
 		public ContaController(CrmServiceClient serviceClient)
 		{
 			this.ServiceClient = serviceClient;
-			Conta = new Conta(serviceClient, "account");
+			Conta = new Conta(serviceClient);
 		}
 
-		public void Create()
+		public void Create(string contaNome)
 		{
-			Guid contaId = Conta.Create("Cinema", 150040.14m, 30, new OptionSetValue(100000000), new Guid("63a38ae0-4d0e-ea11-a813-000d3a1bbd52"));
-			Console.WriteLine($"Conta criada com sucesso: https://org737e10c5.crm2.dynamics.com/main.aspx?appid=74c97688-24ae-ed11-9885-002248365eb3&pagetype=entityrecord&etn=account&id={contaId}" );
+			//Console.WriteLine("Informe o número de funcionários desta conta: ");
+			//int numFuncionarios = int.Parse(Console.ReadLine());
+
+			//Console.WriteLine("Informe o valor do tipo de relação desta conta: ");
+			//OptionSetValue tipoRelacao = new OptionSetValue(int.Parse(Console.ReadLine()));
+
+			//Console.WriteLine("Informe a receita anual desta conta: ");
+			//decimal receitaAnual = decimal.Parse(Console.ReadLine());
+
+			//Console.WriteLine("Informe o id de um cliente potencial desta conta: ");
+			//Guid clientePotencialId = new Guid(Console.ReadLine());
+
+			//Guid contaId = Conta.Create(contaNome, receitaAnual, numFuncionarios, tipoRelacao, clientePotencialId);
+			Guid contaId = Conta.Create(contaNome, 120400.12m, 36, new OptionSetValue(100000000), new Guid("e4a18ae0-4d0e-ea11-a813-000d3a1bbd52"));
+			Console.WriteLine($"\nConta criada com sucesso: https://org737e10c5.crm2.dynamics.com/main.aspx?appid=74c97688-24ae-ed11-9885-002248365eb3&pagetype=entityrecord&etn=account&id={contaId}" );
 		}
 	}
 }

@@ -119,7 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ContaController.cs" />
+    <Compile Include="Controllers\ContatoController.cs" />
     <Compile Include="Models\Conta.cs" />
+    <Compile Include="Models\Contato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton.cs" />
