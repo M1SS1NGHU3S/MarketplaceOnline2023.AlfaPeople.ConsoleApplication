@@ -26,6 +26,7 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication
 				AddAndLinkContact(serviceClient, contaController, contaId);
 			}
 
+			Console.WriteLine("\nPrograma Finalizado. Aperte qualquer tecla para fechar o console.");
 			Console.ReadKey();
 		}
 

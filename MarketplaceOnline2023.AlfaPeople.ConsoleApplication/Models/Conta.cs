@@ -19,10 +19,11 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Models
 			this.ServiceClient = serviceClient;
 		}
 
-		public Guid Create(string nomeConta, decimal receitaAnual, int numFuncionarios, OptionSetValue tipoRelacao, Guid clientePotencialId)
+		public Guid Create(string nomeConta, string cnpj, decimal receitaAnual, int numFuncionarios, OptionSetValue tipoRelacao, Guid clientePotencialId)
 		{
 			Entity conta = new Entity(TipoLogico);
 			conta["name"] = nomeConta;
+			conta["mkt_cnpj"] = cnpj;
 			conta["originatingleadid"] = new EntityReference("lead", clientePotencialId);
 			conta["numberofemployees"] = numFuncionarios;
 			conta["revenue"] = new Money(receitaAnual);

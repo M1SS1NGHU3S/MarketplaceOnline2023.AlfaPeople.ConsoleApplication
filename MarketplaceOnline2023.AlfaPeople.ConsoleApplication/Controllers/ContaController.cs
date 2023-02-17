@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers
@@ -22,6 +23,17 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers
 
 		public Guid Create(string contaNome)
 		{
+			//Regex cnpjRegex = new Regex("\\d{2}.\\d{3}.\\d{3}\\/\\d{4}-\\d{2}");
+
+			//Console.WriteLine("Informe um CNPJ para o novo contato (00.000.000/0000-00):");
+			//string cnpj = Console.ReadLine();
+
+			//while (cnpjRegex.Matches(cnpj).Count < 1)
+			//{
+			//	Console.WriteLine("Formato/CNPJ inválido. Informe um CNPJ para o novo contato (00.000.000/0000-00):");
+			//	cnpj = Console.ReadLine();
+			//}
+
 			//Console.WriteLine("Informe o número de funcionários desta conta: ");
 			//int numFuncionarios = int.Parse(Console.ReadLine());
 
@@ -37,7 +49,7 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Controllers
 			//Guid contaId = Conta.Create(contaNome, receitaAnual, numFuncionarios, tipoRelacao, clientePotencialId);
 
 			Console.WriteLine("\nAguarde enquanto criamos a conta...");
-			Guid contaId = Conta.Create(contaNome, 120400.12m, 36, new OptionSetValue(100000000), new Guid("e4a18ae0-4d0e-ea11-a813-000d3a1bbd52"));
+			Guid contaId = Conta.Create(contaNome, "00.000.000/0000-00", 120400.12m, 36, new OptionSetValue(100000000), new Guid("e4a18ae0-4d0e-ea11-a813-000d3a1bbd52"));
 			Console.WriteLine($"Conta criada com sucesso: https://org737e10c5.crm2.dynamics.com/main.aspx?appid=74c97688-24ae-ed11-9885-002248365eb3&pagetype=entityrecord&etn=account&id={contaId}" );
 
 			return contaId;
