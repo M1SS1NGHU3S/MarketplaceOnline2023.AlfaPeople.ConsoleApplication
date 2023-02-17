@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.Connector;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,16 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Models
 			contato["mobilephone"] = celular;
 
 			return ServiceClient.Create(contato);
+		}
+
+		public bool LookForEqualCpf(string cpf)
+		{
+			QueryExpression queryExpression = new QueryExpression(this.TipoLogico);
+			queryExpression.ColumnSet.AddColumn("firstname");
+			queryExpression.Criteria.AddCondition("mkt_cpf", ConditionOperator.Equal, cpf);
+
+			if (ServiceClient.RetrieveMultiple(queryExpression).Entities.Count > 0) { return true; }
+			return false;
 		}
 	}
 }

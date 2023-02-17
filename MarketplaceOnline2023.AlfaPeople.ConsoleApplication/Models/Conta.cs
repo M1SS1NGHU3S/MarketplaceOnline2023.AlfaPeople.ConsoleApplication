@@ -1,5 +1,6 @@
 ﻿using Microsoft.Rest;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.Connector;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,16 @@ namespace MarketplaceOnline2023.AlfaPeople.ConsoleApplication.Models
 				Console.WriteLine("Um erro ocorreu no processo de atualizar o contato primário: " + ex.ToString());
 				return false;
 			}
-			
+		}
+
+		public bool LookForEqualCnpj(string cnpj)
+		{
+			QueryExpression queryExpression = new QueryExpression(this.TipoLogico);
+			queryExpression.ColumnSet.AddColumn("name");
+			queryExpression.Criteria.AddCondition("mkt_cnpj", ConditionOperator.Equal, cnpj);
+
+			if (ServiceClient.RetrieveMultiple(queryExpression).Entities.Count > 0) { return true; }
+			return false;
 		}
 	}
 }
